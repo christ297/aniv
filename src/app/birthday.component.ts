@@ -22,19 +22,6 @@ import { CommonModule } from '@angular/common';
       <div class="hearts">
         <span *ngFor="let h of hearts">❤️</span>
       </div>
-
-      <div class="haribot-chocolat-block">
-        <h2>🍬 Haribot & Chocolat 🍫</h2>
-        <p>Elle m’a dit : <em>“T’oublies pas hein, achète les Haribot et le chocolat !”</em> 😅</p>
-        <div class="candies">
-          <span *ngFor="let sweet of sweets">🍬</span>
-          <span *ngFor="let choc of chocolates">🍫</span>
-        </div>
-        <div class="blague">
-          <p>Pourquoi Trella ne partage jamais ses Haribot ?</p>
-          <p><em>Parce que l'amour, c’est bien, mais les bonbons... c’est sacré 😌</em></p>
-        </div>
-      </div>
     </div>
   `,
   styles: [`
@@ -50,7 +37,7 @@ import { CommonModule } from '@angular/common';
       color: #fff;
       padding: 2rem;
       position: relative;
-      overflow: auto;
+      overflow: hidden;
     }
 
     h1 {
@@ -134,63 +121,6 @@ import { CommonModule } from '@angular/common';
       }
     }
 
-    .haribot-chocolat-block {
-      margin-top: 3rem;
-      background: rgba(255, 255, 255, 0.15);
-      border-radius: 1rem;
-      padding: 1.5rem;
-      text-align: center;
-      max-width: 500px;
-      backdrop-filter: blur(4px);
-    }
-
-    .haribot-chocolat-block h2 {
-      font-size: 1.8rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .candies {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.5rem;
-      margin: 1rem 0;
-      animation: floatSlow 10s infinite ease-in-out;
-    }
-
-    .candies span {
-      font-size: 2rem;
-      animation: floatSweet 6s infinite ease-in-out alternate;
-    }
-
-    @keyframes floatSweet {
-      0% {
-        transform: translateY(0px) rotate(0deg);
-      }
-      100% {
-        transform: translateY(-20px) rotate(15deg);
-      }
-    }
-
-    @keyframes floatSlow {
-      0% {
-        transform: scale(1);
-      }
-      50% {
-        transform: scale(1.03);
-      }
-      100% {
-        transform: scale(1);
-      }
-    }
-
-    .blague {
-      font-size: 1rem;
-      margin-top: 1rem;
-      color: #fffbe6;
-      font-style: italic;
-    }
-
     @media (max-width: 600px) {
       h1 {
         font-size: 2rem;
@@ -207,9 +137,7 @@ import { CommonModule } from '@angular/common';
   `]
 })
 export class BirthdayComponent {
-  hearts = Array.from({ length: 30 });
-  sweets = Array.from({ length: 12 });
-  chocolates = Array.from({ length: 8 });
+  hearts = Array.from({ length: 30 }); // Génère 30 cœurs animés
 
   launchConfetti() {
     confetti({
